@@ -1,0 +1,435 @@
+@charset "UTF-8";
+
+/* Font Settings */
+@font-face {
+    font-family: 'FORM UDPGothic';
+    src: local('FORM UDPCOGothic'), local('FORM UDPCO Gothic'), local('UDPGothic');
+    /* Note: If this is a web font, the URL needs to be specified. 
+       Currently setting it to try local installed font or fallback. */
+}
+
+:root {
+    --font-main: 'FORM UDPGothic', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+    --color-text: #000;
+    --color-bg: #fff;
+    --width-content: 1000px;
+}
+
+/* Reset & Base */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-main);
+    color: var(--color-text);
+    background-color: var(--color-bg);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: opacity 0.3s ease;
+}
+
+a:hover {
+    opacity: 0.7;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    vertical-align: bottom;
+}
+
+/* Utility */
+.container {
+    max-width: var(--width-content);
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.section-title {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    border-bottom: 2px solid #000;
+    display: inline-block;
+    padding-bottom: 0.5rem;
+}
+
+/* Header (for sub-pages) */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background-color: #e0e0e0; /* Gray header background as seen in images */
+}
+
+.header-logo {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.header-nav ul {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+}
+
+.header-nav a {
+    font-weight: 500;
+    padding-bottom: 5px;
+    border-bottom: 2px solid transparent;
+}
+
+.header-nav a:hover,
+.header-nav a.active {
+    border-bottom-color: #000;
+}
+
+/* Index Page Specifics */
+.index-body {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.index-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 800px; /* Adjust based on design spacing */
+    padding: 0 20px;
+}
+
+.index-main {
+    text-align: left;
+}
+
+.site-namespace {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.site-title {
+    font-size: 4rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    line-height: 1.1;
+}
+
+.site-role {
+    font-size: 1.5rem;
+    color: #555;
+    margin-left: 5px;
+}
+
+.index-nav ul {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; /* Align right side */
+    gap: 60px; /* Spacing between links */
+    list-style: none;
+}
+
+.index-nav a {
+    font-size: 1.5rem;
+    border-bottom: 2px solid #000;
+    padding-bottom: 5px;
+    display: inline-block;
+    width: 120px; /* Fixed width for alignment line */
+    text-align: center;
+}
+
+/* Page Common (Profile, Works, Contact) */
+.page-container {
+    padding: 60px 20px;
+    max-width: 800px; /* Adjust for readable width */
+    margin: 0 auto;
+}
+
+.page-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+}
+
+.page-title span {
+    border-bottom: 2px solid #000;
+    padding-bottom: 10px;
+    display: inline-block;
+}
+
+/* Profile Specific */
+.profile-intro {
+    margin-bottom: 80px;
+    line-height: 2;
+    text-align: left;
+}
+
+.skill-section {
+    margin-bottom: 60px;
+}
+
+.skill-category {
+    margin-bottom: 40px;
+}
+
+.skill-category-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;
+    border-bottom: 2px solid #000;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.skill-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.skill-list li {
+    margin-bottom: 10px;
+}
+
+/* Works Specific */
+.works-intro {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.works-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: center;
+}
+
+.work-item {
+    width: 100%;
+    max-width: 350px; /* Adjust based on 2 column layout */
+    text-align: center;
+}
+
+.work-image {
+    width: 100%;
+    height: auto;
+    border: 1px solid #ccc;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.work-title {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.work-desc {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+/* Detail Page Specifics (SNS, Django) */
+.detail-title-group {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.detail-subtitle {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.detail-main-title {
+    font-size: 2rem;
+    font-weight: bold;
+    border-bottom: 2px solid #000;
+    display: inline-block;
+    padding-bottom: 10px;
+}
+
+.detail-image-container {
+    text-align: center;
+    margin-bottom: 60px;
+    background-color: #f5f5f5; /* Light gray background context if needed, or just white */
+    padding: 20px;
+}
+
+.detail-image-container img {
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    max-width: 80%;
+}
+
+.detail-section {
+    margin-bottom: 60px;
+}
+
+.detail-section-title {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    border-bottom: 2px solid #000;
+    margin-bottom: 30px;
+    padding-bottom: 10px;
+}
+
+.detail-text {
+    line-height: 1.8;
+    text-align: left;
+}
+
+/* Tech Table */
+.tech-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.tech-table th, .tech-table td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+}
+
+.tech-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Feature Blocks */
+.feature-block {
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+}
+
+.feature-header {
+    background-color: #0056b3; /* Blue color from design */
+    color: white;
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.feature-body {
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.feature-row {
+    display: flex;
+    border-bottom: 1px solid #eee;
+}
+
+.feature-row:last-child {
+    border-bottom: none;
+}
+
+.feature-label {
+    background-color: #0056b3;
+    color: white;
+    width: 180px;
+    padding: 10px;
+    font-size: 0.9rem;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.feature-content {
+    padding: 10px 15px;
+    flex: 1;
+    font-size: 0.9rem;
+}
+
+/* Ingenuity Section sub-items */
+.ingenuity-item {
+    margin-bottom: 40px;
+}
+
+.ingenuity-title {
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+/* Feature List (Simple List) */
+.feature-list {
+    background-color: #fff;
+}
+
+.feature-list-item {
+    padding: 12px;
+    border-bottom: 1px solid #eee;
+    font-size: 0.9rem;
+}
+
+.feature-list-item:last-child {
+    border-bottom: none;
+}
+
+
+/* Video Modal */
+.video-modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8);
+    align-items: center;
+    justify-content: center;
+}
+
+.video-modal.show {
+    display: flex;
+}
+
+.video-content {
+    max-width: 90%;
+    max-height: 90%;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    z-index: 1001;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.clickable-image {
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.clickable-image:hover {
+    transform: scale(1.02);
+}

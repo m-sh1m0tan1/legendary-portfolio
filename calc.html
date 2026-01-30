@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>電卓アプリケーション | Works</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="header-logo"><a href="index.html">m.shimotani portfolio</a></div>
+        <nav class="header-nav">
+            <ul>
+                <li><a href="profile.html">Profile</a></li>
+                <li><a href="works.html" class="active">Works</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="page-container">
+        
+        <div class="detail-title-group">
+            <p class="detail-subtitle">2年次JavaFX中間課題</p>
+            <h1 class="detail-main-title">電卓アプリケーション</h1>
+        </div>
+
+        <div class="detail-image-container">
+            <img src="image/calc.png" alt="Calculator App Screen" class="clickable-image" onclick="openModal()">
+            <p style="font-size: 0.9rem; color: #666; margin-top: 5px;">※画像をタップするとデモ動画が再生されます</p>
+        </div>
+
+        <!-- Project Overview -->
+        <section class="detail-section">
+            <h2 class="detail-section-title">プロジェクト概要</h2>
+            <div class="detail-text">
+                <p>JavaFXを用いた電卓アプリケーションです。課題用件である四則演算や連続計算に加え、計算履歴の保存・表示機能、履歴をクリックして結果を再利用できる機能、10件ごとのページネーション機能を独自に実装しました。ユーザビリティを考慮した設計により、実用性の高いアプリケーションを10日間で開発しました。</p>
+            </div>
+        </section>
+
+        <!-- Background -->
+        <section class="detail-section">
+            <h2 class="detail-section-title">制作背景・期間</h2>
+            <div class="detail-text">
+                <p>JavaFXの講義における中間課題として制作しました。難易度別に複数の課題が提示されましたが、技術力向上のため最高難易度の課題を選択しました。制作期間は10日間です。</p>
+            </div>
+        </section>
+
+        <!-- Role -->
+        <section class="detail-section">
+            <h2 class="detail-section-title">役割</h2>
+            <div class="detail-text">
+                <p style="text-align: center;">個人開発(要件定義に基づいた設計、全機能の実装、バグ検証まで一貫して担当)</p>
+            </div>
+        </section>
+
+        <!-- Tech Stack -->
+        <section class="detail-section">
+            <h2 class="detail-section-title">使用技術</h2>
+            <table class="tech-table">
+                <tr>
+                    <td>Java (JDK: Azul Zulu 25.0.1)</td>
+                </tr>
+                <tr>
+                    <td>JavaFX</td>
+                </tr>
+                <tr>
+                    <td>FXML / Scene Builder</td>
+                </tr>
+            </table>
+        </section>
+
+        <!-- Features -->
+        <section class="detail-section">
+            <h2 class="detail-section-title">実装機能</h2>
+            
+            <div class="feature-block">
+                <div class="feature-header">基本機能</div>
+                <div class="feature-list">
+                    <div class="feature-list-item">四則演算</div>
+                    <div class="feature-list-item">連続計算機能</div>
+                    <div class="feature-list-item">0で割った時のエラーハンドリング</div>
+                </div>
+            </div>
+
+            <div class="feature-block">
+                <div class="feature-header">追加機能</div>
+                <div class="feature-list">
+                    <div class="feature-list-item">計算履歴機能</div>
+                    <div class="feature-list-item">履歴からの再計算機能</div>
+                    <div class="feature-list-item">計算履歴のページネーション機能</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Points -->
+        <section class="detail-section">
+            <h2 class="detail-section-title">工夫した点</h2>
+            <div class="detail-text">
+                <p>TableViewを用いて計算式と結果を履歴として保持し、一覧形式で表示しています。これにより、過去の計算を視覚的に確認できるようになっています。<br>さらに、その履歴をクリックすることでその結果を新しい計算の起点として利用可能にしました。<br>履歴が増えても見やすさを保つため、10件ごとに分割して表示し、前へボタンと次へボタンで切り替えられる仕組みを作りました。</p>
+            </div>
+        </section>
+        
+        <!-- Future Improvements -->
+         <section class="detail-section">
+            <h2 class="detail-section-title">今後の改善点</h2>
+            <div class="detail-text">
+                <p>現状では小数点および負の数の直接入力に対応していません。小数点ボタンの追加と、マイナス記号を数値の符号として扱うロジックの実装により、より実用的な電卓として機能を拡張したいと考えています。</p>
+            </div>
+        </section>
+
+        <!-- Video Modal -->
+        <div id="videoModal" class="video-modal" onclick="closeModal()">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <video class="video-content" id="demoVideo" controls onclick="event.stopPropagation()">
+                <source src="image/calc.mp4" type="video/mp4">
+                お使いのブラウザは動画タグに対応していません。
+            </video>
+        </div>
+
+        <script>
+            function openModal() {
+                const modal = document.getElementById('videoModal');
+                const video = document.getElementById('demoVideo');
+                modal.classList.add('show');
+                video.play();
+            }
+
+            function closeModal() {
+                const modal = document.getElementById('videoModal');
+                const video = document.getElementById('demoVideo');
+                modal.classList.remove('show');
+                video.pause();
+                // video.currentTime = 0; // Optional: reset to start
+            }
+            
+            // Close modal with Escape key
+            document.addEventListener('keydown', function(event) {
+                if (event.key === "Escape") {
+                    closeModal();
+                }
+            });
+        </script>
+
+    </div>
+</body>
+</html>

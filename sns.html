@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SNSアプリケーション | Works</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="header-logo"><a href="index.html">m.shimotani portfolio</a></div>
+        <nav class="header-nav">
+            <ul>
+                <li><a href="profile.html">Profile</a></li>
+                <li><a href="works.html" class="active">Works</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="page-container">
+        
+        <div class="detail-title-group">
+            <p class="detail-subtitle">1年次Python期末課題</p>
+            <h1 class="detail-main-title">SNSアプリケーション</h1>
+        </div>
+
+        <div class="detail-image-container">
+            <img src="image/sns.png" alt="SNS App Screen">
+        </div>
+
+        <!-- Project Overview -->
+        <section class="detail-section">
+            <h2 class="detail-section-title">プロジェクト概要</h2>
+            <div class="detail-text">
+                <p>PythonのGUIライブラリであるtkinterを使用して開発したSNSアプリケーションです。ユーザー認証、投稿、フォロー機能など、実際のSNSに必要な基本機能を実装しました。</p>
+            </div>
+        </section>
+
+        <!-- Background -->
+        <section class="detail-section">
+            <h2 class="detail-section-title">制作背景・期間</h2>
+            <div class="detail-text">
+                <p>Pythonの講義の期末課題として、14日間で開発しました。複数の課題候補の中で最も難易度の高いSNSアプリにチャレンジすることで、より実践的なスキルを身につけたいと考えました。</p>
+            </div>
+        </section>
+
+        <!-- Role -->
+        <section class="detail-section">
+            <h2 class="detail-section-title">役割</h2>
+            <div class="detail-text">
+                <p style="text-align: center;">個人開発(バックエンド、フロントエンド、データベース設計をすべて担当)</p>
+            </div>
+        </section>
+
+        <!-- Tech Stack -->
+        <section class="detail-section">
+            <h2 class="detail-section-title">使用技術</h2>
+            <table class="tech-table">
+                <tr>
+                    <td>Python 3.12.3</td>
+                </tr>
+                <tr>
+                    <td>tkinter (GUIフレームワーク)</td>
+                </tr>
+                <tr>
+                    <td>MySQL (データベース)</td>
+                </tr>
+                <tr>
+                    <td>MySQLdb (PythonとMySQLを接続)</td>
+                </tr>
+                <tr>
+                    <td>smtplib, emailライブラリ(メール送信)</td>
+                </tr>
+            </table>
+        </section>
+
+        <!-- Features -->
+        <section class="detail-section">
+            <h2 class="detail-section-title">実装機能</h2>
+            
+            <div class="feature-block">
+                <div class="feature-row">
+                    <div class="feature-label">ユーザー認証</div>
+                    <div class="feature-content">ログイン、新規登録、メール認証、パスワードリセット</div>
+                </div>
+                <div class="feature-row">
+                    <div class="feature-label">プロフィール機能</div>
+                    <div class="feature-content">アイコン・ID・アカウント名の設定</div>
+                </div>
+                <div class="feature-row">
+                    <div class="feature-label">投稿機能</div>
+                    <div class="feature-content">テキストの投稿、画像の添付、投稿一覧表示</div>
+                </div>
+                <div class="feature-row">
+                    <div class="feature-label">ソーシャル機能</div>
+                    <div class="feature-content">フォロー機能、タイムライン、アカウント検索</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Points -->
+        <section class="detail-section">
+            <h2 class="detail-section-title">工夫した点</h2>
+            <div class="detail-text">
+                <p>投稿一覧の表示方法に最も苦労しました。当初はすべての投稿を一度に表示することを考えていましたが、パフォーマンスとUIの観点から、SQLのLIMITとOFFSETを活用したページネーション方式を採用しました。新しい投稿から5件ずつ取得して表示し、次ページボタンで次の5件を表示する仕組みを実装することで、データベースへの負荷を抑えながら使いやすいインターフェースを実現しました。</p>
+            </div>
+        </section>
+
+    </div>
+</body>
+</html>

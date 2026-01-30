@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>出席管理アプリケーション | Works</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="header-logo"><a href="index.html">m.shimotani portfolio</a></div>
+        <nav class="header-nav">
+            <ul>
+                <li><a href="profile.html">Profile</a></li>
+                <li><a href="works.html" class="active">Works</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="page-container">
+        
+        <div class="detail-title-group">
+            <p class="detail-subtitle">2年次Django期末課題</p>
+            <h1 class="detail-main-title">出席管理アプリケーション</h1>
+        </div>
+
+        <div class="detail-image-container">
+            <img src="image/django.png" alt="Django Attendance App Screen" class="clickable-image" onclick="openModal()">
+            <p style="font-size: 0.9rem; color: #666; margin-top: 5px;">※画像をタップするとデモ動画が再生されます</p>
+        </div>
+
+        <!-- Project Overview -->
+        <section class="detail-section">
+            <h2 class="detail-section-title">プロジェクト概要</h2>
+            <div class="detail-text">
+                <p>PythonのWebフレームワークDjangoを使用して開発した出席管理アプリケーションです。生徒と教員の2つの権限を持ち、授業の出席管理から時間割作成、休講・振替授業の管理まで、教育現場で必要な機能を実装しました。</p>
+            </div>
+        </section>
+
+        <!-- Background -->
+        <section class="detail-section">
+            <h2 class="detail-section-title">制作背景・期間</h2>
+            <div class="detail-text">
+                <p>Djangoの授業の課題として、約2週間で開発しました。複数の課題候補の中で難易度の高い出席管理アプリにチャレンジすることで、Webアプリケーション開発の実践的なスキルを習得したいと考えました。</p>
+            </div>
+        </section>
+
+        <!-- Role -->
+        <section class="detail-section">
+            <h2 class="detail-section-title">役割</h2>
+            <div class="detail-text">
+                <p style="text-align: center;">個人開発（要件定義、データベース設計、バックエンド・フロントエンド実装、デプロイをすべて担当）</p>
+            </div>
+        </section>
+
+        <!-- Tech Stack -->
+        <section class="detail-section">
+            <h2 class="detail-section-title">使用技術</h2>
+            <table class="tech-table">
+                <tr><td>Python 3.12.3</td></tr>
+                <tr><td>Django 4.2</td></tr>
+                <tr><td>SQLite（開発環境）</td></tr>
+                <tr><td>PostgreSQL（本番環境・Render）</td></tr>
+                <tr><td>Djangoテンプレートエンジン</td></tr>
+                <tr><td>Chosen.js（UIライブラリ）</td></tr>
+            </table>
+        </section>
+
+        <!-- Features -->
+        <section class="detail-section">
+            <h2 class="detail-section-title">実装機能</h2>
+            
+            <div class="feature-block">
+                <div class="feature-header">生徒側機能</div>
+                <div class="feature-list">
+                    <div class="feature-list-item">ユーザー認証（メールアドレスでのログイン、新規登録）</div>
+                    <div class="feature-list-item">リアルタイム出席登録（現在開催中の授業のみ表示）</div>
+                    <div class="feature-list-item">出席履歴確認（当日の出席記録表示）</div>
+                </div>
+            </div>
+
+            <div class="feature-block">
+                <div class="feature-header">教員側機能</div>
+                <div class="feature-list">
+                    <div class="feature-list-item">教科管理（新規作成、編集、削除、連続登録機能）</div>
+                    <div class="feature-list-item">時間割管理（前期・後期別の作成・編集・一覧表示、複数教科の一括登録）</div>
+                    <div class="feature-list-item">ユーザー管理（生徒・教員アカウントの新規作成）</div>
+                    <div class="feature-list-item">出席状況確認（教科ごとの出席者一覧、学籍番号順ソート機能）</div>
+                    <div class="feature-list-item">権限制御（教員専用ページへのアクセス制限）</div>
+                </div>
+            </div>
+
+            <div class="feature-block">
+                <div class="feature-header">システム機能</div>
+                <div class="feature-list">
+                    <div class="feature-list-item">現在時刻に基づく自動判定機能（何限目の授業が開催中か自動判定）</div>
+                    <div class="feature-list-item">学期自動判定機能（現在の月から前期・後期を自動判定）</div>
+                    <div class="feature-list-item">データ整合性保証（ユニーク制約による重複登録防止、カスタムバリデーション）</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Points -->
+        <section class="detail-section">
+            <h2 class="detail-section-title">工夫した点</h2>
+            
+            <div class="ingenuity-item">
+                <h3 class="ingenuity-title">バリデーション処理の実装</h3>
+                <div class="detail-text">
+                    <p>最も苦労したのは、HTMLフォームから送信されたデータの検証処理です。データベースの制約違反チェック、正常なデータかの判定、適切なリダイレクト先の選定など、複数の要素を考慮する必要がありました。特にユニーク制約違反時には、Djangoのデフォルトエラーメッセージを削除し、ユーザーにわかりやすいカスタムメッセージを表示する処理を実装しました。</p>
+                </div>
+            </div>
+
+            <div class="ingenuity-item">
+                <h3 class="ingenuity-title">出席登録の厳密な制御</h3>
+                <div class="detail-text">
+                    <p>生徒が出席登録できる授業を、現在時刻に基づいて厳密に制御しました。自作の関数で現在の曜日と時限を判定し、開催中の授業のみを選択肢として表示することで、開催していない授業への不正な出席登録（出席率のかさ増し）を防止しています。さらに、フォームレベルでも同一時間帯への重複出席をチェックし、生徒が誤って同じ時限の別の授業に重複して出席することを防ぎました。</p>
+                </div>
+            </div>
+
+            <div class="ingenuity-item">
+                <h3 class="ingenuity-title">直感的なフィードバック</h3>
+                <div class="detail-text">
+                    <p>Djangoのメッセージフレームワークを活用し、全ての操作に対して成功・エラー・警告メッセージを表示する仕組みを実装しました。「〇〇を登録しました」「すでに出席済みです」など、ユーザーの操作結果が明確に分かるようにすることで、使いやすさを向上させました。</p>
+                </div>
+            </div>
+
+            <div class="ingenuity-item">
+                <h3 class="ingenuity-title">効率的なデータ入力</h3>
+                <div class="detail-text">
+                    <p>教員が複数の教科や時間割を連続して登録する際の手間を削減するため、「続けて登録する」チェックボックス機能を実装しました。チェックを入れると登録後も同じフォーム画面に留まり、連続してデータを入力できます。また、時間割登録では複数の教科を一度に選択できる機能も実装し、同じ時間帯に複数の教科を効率的に登録できるようにしました。</p>
+                </div>
+            </div>
+
+            <div class="ingenuity-item">
+                <h3 class="ingenuity-title">視認性の高い時間割表示</h3>
+                <div class="detail-text">
+                    <p>実際の学校の時間割を模して、曜日×時限の二次元配列で時間割を表示しました。教員が一目で週全体のスケジュールを把握できるよう、データベースから取得したデータを視覚的に整理して表示しています。</p>
+                </div>
+            </div>
+
+            <div class="ingenuity-item">
+                <h3 class="ingenuity-title">出席確認の効率化</h3>
+                <div class="detail-text">
+                    <p>教員が出席状況を確認する際、生徒を学籍番号順に自動ソートして表示することで、誰が出席しているかを素早く把握できるようにしました。これにより、出席簿との照合作業が容易になります。</p>
+                </div>
+            </div>
+
+            <div class="ingenuity-item">
+                <h3 class="ingenuity-title">使いやすいUI</h3>
+                <div class="detail-text">
+                    <p>Chosen.jsライブラリを導入し、教科選択などのプルダウンメニューを検索可能にしました。教科数が多い場合でも、キーワード入力で素早く目的の項目を見つけられるようになっています。</p>
+                </div>
+            </div>
+
+            <div class="ingenuity-item">
+                <h3 class="ingenuity-title">独学での技術習得</h3>
+                <div class="detail-text">
+                    <p>授業で扱っていないDjango独自の機能（Mixinによる権限制御、カスタムユーザーマネージャー、Model Managerの活用など）を公式ドキュメントやコミュニティの情報を参考にしながら学び、実装に取り入れました。</p>
+                </div>
+            </div>
+
+            <div class="ingenuity-item">
+                <h3 class="ingenuity-title">デプロイ</h3>
+                <div class="detail-text">
+                    <p>開発環境ではSQLiteを使用し、本番環境ではRenderを利用してPostgreSQLへデータベースを移行してデプロイを行いました。環境による差異を吸収するため、設定ファイルの適切な管理も行いました。</p>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Future Improvements -->
+        <section class="detail-section">
+            <h2 class="detail-section-title">今後の改善点</h2>
+            <div class="detail-text">
+                <p>当初予定していた振替授業機能（授業を別の日時に振り替える機能）を実装できませんでした。複雑なスケジュール管理のロジック（休講日と振替日の整合性チェック、学期をまたぐ振替への対応、振替授業の出席管理など）を開発期間内に完成させることができず、断念しました。また、機能実装を優先したため、フロントエンドのデザインや色合いにもっと気を配る必要があると感じました。今後は、より複雑な機能の設計力と実装力を高め、機能性とデザイン性の両立を意識したいと考えています。</p>
+            </div>
+        </section>
+
+        <!-- Video Modal -->
+        <div id="videoModal" class="video-modal" onclick="closeModal()">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <video class="video-content" id="demoVideo" controls onclick="event.stopPropagation()">
+                <source src="image/django.mp4" type="video/mp4">
+                お使いのブラウザは動画タグに対応していません。
+            </video>
+        </div>
+
+        <script>
+            function openModal() {
+                const modal = document.getElementById('videoModal');
+                const video = document.getElementById('demoVideo');
+                modal.classList.add('show');
+                video.play();
+            }
+
+            function closeModal() {
+                const modal = document.getElementById('videoModal');
+                const video = document.getElementById('demoVideo');
+                modal.classList.remove('show');
+                video.pause();
+                // video.currentTime = 0; // Optional: reset to start
+            }
+            
+            // Close modal with Escape key
+            document.addEventListener('keydown', function(event) {
+                if (event.key === "Escape") {
+                    closeModal();
+                }
+            });
+        </script>
+
+    </div>
+</body>
+</html>
