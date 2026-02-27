@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>おしゃべりずんだもん | Works</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="image/favicon.ico">
+</head>
+<body>
+    <header class="header">
+        <div class="header-logo"><a href="index.html">m.shimotani portfolio</a></div>
+        <nav class="header-nav">
+            <ul>
+                <li><a href="profile.html">Profile</a></li>
+                <li><a href="works.html" class="active">Works</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="page-container">
+        
+        <div class="detail-title-group">
+            <p class="detail-subtitle">Java</p>
+            <h1 class="detail-main-title">おしゃべりずんだもん</h1>
+        </div>
+
+        <div class="detail-image-container">
+            <img src="image/zundamon.png" alt="おしゃべりずんだもん Screen" class="clickable-image" onclick="openModal()">
+            <p style="font-size: 0.9rem; color: #666; margin-top: 5px;">※画像をタップするとデモ動画が再生されます</p>
+        </div>
+
+        <!-- Project Overview -->
+        <section class="detail-section">
+            <h2 class="detail-section-title">プロジェクト概要</h2>
+            <div class="detail-text">
+                <p>JavaFXで開発したずんだもんとのチャットアプリです。VOICEVOXとGemini APIを組み合わせ、ユーザーの質問にずんだもんが音声で答えます。感情に応じて表情が変わり、音声に合わせて文字が表示されていくため、本当にずんだもんと話しているような感覚になります。</p>
+            </div>
+        </section>
+
+        <!-- Background -->
+        <section class="detail-section">
+            <h2 class="detail-section-title">制作背景・期間</h2>
+            <div class="detail-text">
+                <p>制作期間は約1ヶ月です。VOICEVOXがローカルサーバーを立ち上げてリクエストを受け付け、音声を合成できると知ったのがきっかけでした。ただそれだけではアプリになりません。ハッカソンで見たGemini APIと掛け合わせれば、ずんだもんと疑似的に会話できると考えました。寂しさを感じる人を減らしたい、幅広い層にずんだもんを知ってもらいたいという思いで作りました。</p>
+            </div>
+        </section>
+
+        <!-- Role -->
+        <section class="detail-section">
+            <h2 class="detail-section-title">役割</h2>
+            <div class="detail-text">
+                <p style="text-align: center;">個人開発　フロントエンド、API連携、音声処理をすべて担当</p>
+            </div>
+        </section>
+
+        <!-- Tech Stack -->
+        <section class="detail-section">
+            <h2 class="detail-section-title">使用技術</h2>
+            <table class="tech-table">
+                <tr>
+                    <td>Java (JavaFX)</td>
+                </tr>
+                <tr>
+                    <td>VOICEVOX API　音声合成</td>
+                </tr>
+                <tr>
+                    <td>Gemini API　AI対話生成</td>
+                </tr>
+                <tr>
+                    <td>Gson　JSON処理</td>
+                </tr>
+                <tr>
+                    <td>マルチスレッド処理</td>
+                </tr>
+            </table>
+        </section>
+
+        <!-- Features -->
+        <section class="detail-section">
+            <h2 class="detail-section-title">実装機能</h2>
+            
+            <div class="feature-block">
+                <div class="feature-row">
+                    <div class="feature-label">AI対話機能</div>
+                    <div class="feature-content">Gemini APIによる自然な会話生成</div>
+                </div>
+                <div class="feature-row">
+                    <div class="feature-label">音声合成</div>
+                    <div class="feature-content">VOICEVOXによるずんだもんの声での回答</div>
+                </div>
+                <div class="feature-row">
+                    <div class="feature-label">感情表現</div>
+                    <div class="feature-content">回答内容に応じた表情の切り替え</div>
+                </div>
+                <div class="feature-row">
+                    <div class="feature-label">テキストアニメーション</div>
+                    <div class="feature-content">音声の長さに合わせた文字の段階的表示</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Points -->
+        <section class="detail-section">
+            <h2 class="detail-section-title">工夫した点</h2>
+            <div class="detail-text">
+                <p>音声合成と解答生成には時間がかかります。メインスレッドだけで処理するとアプリが固まって見えてしまいます。マルチスレッド処理を実装し、処理中も頻繁にウィジェットを更新することでユーザーを不安にさせないようにしました。JavaFXはウィジェットの更新を必ずメインスレッドで行う必要があり、戻り値を持つスレッド間の連携方法を調べながら実装したのは本当に苦労しました。</p>
+                <p>Gemini APIから解答と感情という複数の情報を受け取るため、JSON形式で返答させるよう設定しました。複雑な情報をJavaで扱うにはこれが最適だと判断しました。</p>
+                <p>APIキーはパスワードと同じで他人に知られてはいけません。プログラムに直接書き込むのは抵抗があったため、.envファイルから参照する仕組みを作りました。</p>
+                <p>感情ごとに画像を切り替え、考え中は考えている画像を表示するなど細かい演出にこだわりました。音声の長さに合わせて徐々に文字を出力することで、ずんだもんが実際に話しているような演出を実現できました。</p>
+            </div>
+        </section>
+
+        <!-- Video Modal -->
+        <div id="videoModal" class="video-modal" onclick="closeModal()">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <video class="video-content" id="demoVideo" controls onclick="event.stopPropagation()">
+                <source src="image/zundamon.mp4" type="video/mp4">
+                お使いのブラウザは動画タグに対応していません。
+            </video>
+        </div>
+
+        <script>
+            function openModal() {
+                const modal = document.getElementById('videoModal');
+                const video = document.getElementById('demoVideo');
+                modal.classList.add('show');
+                video.play();
+            }
+
+            function closeModal() {
+                const modal = document.getElementById('videoModal');
+                const video = document.getElementById('demoVideo');
+                modal.classList.remove('show');
+                video.pause();
+            }
+
+            document.addEventListener('keydown', function(event) {
+                if (event.key === "Escape") {
+                    closeModal();
+                }
+            });
+        </script>
+
+    </div>
+</body>
+</html>
